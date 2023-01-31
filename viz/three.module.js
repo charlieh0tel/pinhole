@@ -1,1 +1,0 @@
-/usr/share/javascript/three/three.module.js

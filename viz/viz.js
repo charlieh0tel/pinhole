@@ -1,4 +1,4 @@
-import * as THREE from "./three.module.js";
+import * as THREE from "./three/three.module.js";
 
 class Frustum extends THREE.PolyhedronGeometry {
     constructor(width1, height1, width2, height2, depth,
