@@ -8,11 +8,6 @@
 # Depth of Field Outside the Box [[http://www.dicklyon.com/tech/Photography/DepthOfField-Lyon.pdf]]
 #
 
-#
-# Note: pint doesn't currently support typing in any reasonable way,
-# so everything is pint.Qunatity and assertions for checking.
-#
-
 import attr
 import math
 import numpy
