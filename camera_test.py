@@ -3,7 +3,7 @@
 import numpy
 import quantities as pq
 
-import camera
+from . import camera
 
 def test_sensor():
     pitch = 1.55 * pq.micron
