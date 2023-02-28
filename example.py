@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+#
+# Copyright (c) 2023, Christopher Hoover
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
 import numpy as np
 import quantities as pq
 import sys
