@@ -18,7 +18,7 @@ def main(argv):
     w_px = 4096
     h_px = 3072
     sensor = camera.Sensor('s', pitch, w_px, h_px)
-    print(f";{sensor}");
+    print(f";{sensor}")
 
     distance = 25. * pq.meter
 

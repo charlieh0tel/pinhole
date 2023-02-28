@@ -15,10 +15,8 @@
 #
 
 import attr
-import math
 import numpy
 import quantities as pq
-import typing
 
 INF = float("inf")
 
@@ -47,7 +45,6 @@ class Sensor:
     def sensor_diagonal(self):
         """Returns the length of the diagonal of the sensor."""
         return numpy.hypot(self.sensor_height, self.sensor_width)
-        
 
     @property
     def circle_of_confusion_diameter(self):
@@ -58,8 +55,7 @@ class Sensor:
         if self.cfa == 'bayer':
             # Per Lyon, for Bayer sensor, the diameter C is then 2.25 pixels.
             return 2.25 * self.pixel_pitch
-        else:
-            raise Error('Unknown cfa \'%s\'', self.cfa)
+        raise ValueError(f'Unknown cfa {self.cfa}')
 
 
 @attr.s(auto_attribs=True)
@@ -82,15 +78,14 @@ class Lens:
                     focal_plane_length,
                     2. * self.focal_length.rescale(focal_plane_length.units)) *
                 pq.radian)
-        elif self.projection == 'equidistant':
+        if self.projection == 'equidistant':
             angle = focal_plane_length / self.focal_length
             return angle.simplified * pq.radian
-        else:
-            raise Error('Unknown projection \'%s\'', self.projection)
+        raise ValueError(f'Unknown projection {self.projection}')
 
 
 @attr.s(auto_attribs=True)
-class Camera(object):
+class Camera:
     """Camera"""
 
     name: str = ''
